@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35013.160
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2C02AA95-1F2A-4788-B71E-2381B7E30F6E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3162E34D-C09D-4651-B888-DE28E3083481}"
+	ProjectSection(SolutionItems) = preProject
+		SerivceUlr.txt = SerivceUlr.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "APIGateways", "APIGateways", "{3729DC94-3054-4E4F-98B6-C2D9B176F307}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildingBlocks", "BuildingBlocks", "{CA1E5D80-448E-439B-9CA1-A069D0FE4BA0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{E75785AA-CE41-4745-94D5-E391E4D88331}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Clients", "Clients", "{48A3027F-D605-4E90-B416-4D6FF880015D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WepAPIGateway", "WepAPIGateway", "{2B13C477-A152-42B3-8920-7F0C1C69AF82}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EventBus", "EventBus", "{F34ADAAB-6492-489C-8CCF-06100D82006D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ocelot.APIGateway", "src\APIGateways\WebAPIGateway\Ocelot.APIGateway\Ocelot.APIGateway.csproj", "{16A24B57-45F3-4BCA-ADD8-21178B7B431A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventBus.Base", "src\BuildingBlocks\EventBus\EventBus.Base\EventBus.Base.csproj", "{409EB4A0-4BFB-413D-96AB-9A318B3CC594}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{16A24B57-45F3-4BCA-ADD8-21178B7B431A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16A24B57-45F3-4BCA-ADD8-21178B7B431A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16A24B57-45F3-4BCA-ADD8-21178B7B431A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16A24B57-45F3-4BCA-ADD8-21178B7B431A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{409EB4A0-4BFB-413D-96AB-9A318B3CC594}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{409EB4A0-4BFB-413D-96AB-9A318B3CC594}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{409EB4A0-4BFB-413D-96AB-9A318B3CC594}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{409EB4A0-4BFB-413D-96AB-9A318B3CC594}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3729DC94-3054-4E4F-98B6-C2D9B176F307} = {2C02AA95-1F2A-4788-B71E-2381B7E30F6E}
+		{CA1E5D80-448E-439B-9CA1-A069D0FE4BA0} = {2C02AA95-1F2A-4788-B71E-2381B7E30F6E}
+		{E75785AA-CE41-4745-94D5-E391E4D88331} = {2C02AA95-1F2A-4788-B71E-2381B7E30F6E}
+		{48A3027F-D605-4E90-B416-4D6FF880015D} = {2C02AA95-1F2A-4788-B71E-2381B7E30F6E}
+		{2B13C477-A152-42B3-8920-7F0C1C69AF82} = {3729DC94-3054-4E4F-98B6-C2D9B176F307}
+		{F34ADAAB-6492-489C-8CCF-06100D82006D} = {CA1E5D80-448E-439B-9CA1-A069D0FE4BA0}
+		{16A24B57-45F3-4BCA-ADD8-21178B7B431A} = {2B13C477-A152-42B3-8920-7F0C1C69AF82}
+		{409EB4A0-4BFB-413D-96AB-9A318B3CC594} = {F34ADAAB-6492-489C-8CCF-06100D82006D}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CC154AE9-A620-4EFB-A4B6-5BE5E578E12E}
+	EndGlobalSection
+EndGlobal
