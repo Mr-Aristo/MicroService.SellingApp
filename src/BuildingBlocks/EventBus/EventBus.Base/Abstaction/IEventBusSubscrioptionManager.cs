@@ -7,7 +7,7 @@ using EventBus.Base.Events;
 
 namespace EventBus.Base.Abstaction
 {
-    public interface IEventBusSubscrioptionManager
+    public interface IEventBusSubscriptionManager
     {
 
         bool IsEmpty { get; }

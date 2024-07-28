@@ -12,10 +12,10 @@ namespace EventBus.Base.Abstaction
     /// Burda servislerimizin subscription islemleri yapilcak.
     /// Hangi eventin subsrice edilecegini bununla belirliyoruz.
     /// </summary>
-    public interface IEventBus
-    { 
-        void Publish(IntegrationEvent @event);  
-        void Subscribe<T,THandler>()where T : IntegrationEvent where THandler:IIntegrationEventHandler<T>;
+    public interface IEventBus : IDisposable
+    {
+        void Publish(IntegrationEvent @event);
+        void Subscribe<T, THandler>() where T : IntegrationEvent where THandler : IIntegrationEventHandler<T>;
         void UnSubscribe<T, THandler>() where T : IntegrationEvent where THandler : IIntegrationEventHandler<T>;
     }
 }

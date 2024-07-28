@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EventBus.Base.Abstaction;
+using EventBus.Base.Configuration;
 using EventBus.Base.SubscriptionManagers;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
@@ -14,7 +15,7 @@ namespace EventBus.Base.Events
     public abstract class BaseEventBus : IEventBus
     {
         public readonly IServiceProvider ServiceProvider;
-        public readonly IEventBusSubscrioptionManager SubscrioptionManager;
+        public readonly IEventBusSubscriptionManager SubscrioptionManager;
         public EventBusConfig EventBusConfig { get; set; }
 
         protected BaseEventBus(EventBusConfig eventBusConfig, IServiceProvider serviceProvider)
@@ -24,7 +25,7 @@ namespace EventBus.Base.Events
             SubscrioptionManager = new InMemoryEventBusSubscriptionManager(ProcessEventName);
 
         }
-       
+
         public virtual string ProcessEventName(string eventName)
         {
             if (EventBusConfig.DeleteEventPrefix)
@@ -34,13 +35,16 @@ namespace EventBus.Base.Events
 
             return eventName;
         }
+
         public virtual string GetSubName(string eventName)
         {
             return $"{EventBusConfig.SubscriberClientAppName}.{ProcessEventName(eventName)}";
         }
-        public virtual void Dispose()
+
+        public virtual void Dispose()//IEventBus:IDisposable oldugu icin bu metod kullanilabilecek.
         {
             EventBusConfig = null;
+            SubscrioptionManager.Clear();
         }
 
         public async Task<bool> ProcessEvent(string eventName, string message)
@@ -74,7 +78,7 @@ namespace EventBus.Base.Events
                 prosessed = true;
             }
             return prosessed;
-        } 
+        }
 
         //Assagidaki metodlar azure service bus yada rabbitmq tarafinda implemente edilecek.
         public virtual void Publish(IntegrationEvent @event)

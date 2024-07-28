@@ -8,7 +8,7 @@ using EventBus.Base.Events;
 
 namespace EventBus.Base.SubscriptionManagers
 {
-    public class InMemoryEventBusSubscriptionManager : IEventBusSubscrioptionManager
+    public class InMemoryEventBusSubscriptionManager : IEventBusSubscriptionManager
     {
         private readonly Dictionary<string, List<SubscriptionInfo>> _handlers;
         private readonly List<Type> _eventTypes;
