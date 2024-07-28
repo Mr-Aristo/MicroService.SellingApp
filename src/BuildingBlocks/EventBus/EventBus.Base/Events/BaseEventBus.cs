@@ -15,33 +15,32 @@ namespace EventBus.Base.Events
     {
         public readonly IServiceProvider ServiceProvider;
         public readonly IEventBusSubscrioptionManager SubscrioptionManager;
-        private EventBusConfig eventBusConfig;
+        public EventBusConfig EventBusConfig { get; set; }
 
         protected BaseEventBus(EventBusConfig eventBusConfig, IServiceProvider serviceProvider)
         {
-            this.eventBusConfig = eventBusConfig;
+            this.EventBusConfig = eventBusConfig;
             ServiceProvider = serviceProvider;
             SubscrioptionManager = new InMemoryEventBusSubscriptionManager(ProcessEventName);
 
         }
-
+       
         public virtual string ProcessEventName(string eventName)
         {
-            if (eventBusConfig.DeleteEventPrefix)
-                eventName = eventName.TrimStart(eventBusConfig.EventNamePrefix.ToArray());
-            if (eventBusConfig.DeleteEventSuffix)
-                eventName = eventName.TrimEnd(eventBusConfig.EventNameSuffix.ToArray());
+            if (EventBusConfig.DeleteEventPrefix)
+                eventName = eventName.TrimStart(EventBusConfig.EventNamePrefix.ToArray());
+            if (EventBusConfig.DeleteEventSuffix)
+                eventName = eventName.TrimEnd(EventBusConfig.EventNameSuffix.ToArray());
 
             return eventName;
-
         }
         public virtual string GetSubName(string eventName)
         {
-            return $"{eventBusConfig.SubscriberClientAppName}.{ProcessEventName(eventName)}";
+            return $"{EventBusConfig.SubscriberClientAppName}.{ProcessEventName(eventName)}";
         }
         public virtual void Dispose()
         {
-            eventBusConfig = null;
+            EventBusConfig = null;
         }
 
         public async Task<bool> ProcessEvent(string eventName, string message)
@@ -60,7 +59,7 @@ namespace EventBus.Base.Events
                         var handler = ServiceProvider.GetService(subscription.HandleType);
                         if (handler == null) continue;
 
-                        var eventType = SubscrioptionManager.GetEventTypeByName($"{eventBusConfig.EventNamePrefix}{eventName}{eventBusConfig.EventNameSuffix}");
+                        var eventType = SubscrioptionManager.GetEventTypeByName($"{EventBusConfig.EventNamePrefix}{eventName}{EventBusConfig.EventNameSuffix}");
                         var integrationEvent = JsonConvert.DeserializeObject(message, eventType);
 
                         //if (integrationEvent is IntegrationEvent)
@@ -75,20 +74,22 @@ namespace EventBus.Base.Events
                 prosessed = true;
             }
             return prosessed;
-        }
-        public void Publish(IntegrationEvent @event)
+        } 
+
+        //Assagidaki metodlar azure service bus yada rabbitmq tarafinda implemente edilecek.
+        public virtual void Publish(IntegrationEvent @event)
         {
             throw new NotImplementedException();
         }
 
-        public void Subscribe<T, THandler>()
+        public virtual void Subscribe<T, THandler>()
             where T : IntegrationEvent
             where THandler : IIntegrationEventHandler<T>
         {
             throw new NotImplementedException();
         }
 
-        public void UnSubscribe<T, THandler>()
+        public virtual void UnSubscribe<T, THandler>()
             where T : IntegrationEvent
             where THandler : IIntegrationEventHandler<T>
         {
