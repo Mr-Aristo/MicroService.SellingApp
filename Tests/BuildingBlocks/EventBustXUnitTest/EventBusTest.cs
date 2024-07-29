@@ -1,4 +1,6 @@
 using System.Security.Authentication.ExtendedProtection;
+using EventBus.Base.Abstaction;
+using EventBus.Base.Events;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;//ServiceCollection
 
@@ -18,6 +20,8 @@ namespace EventBusXunitTest
         [Fact]
         public void subscribe_event_on_rabbitmq_test()
         {
+           // services.AddSingleton<IEventBus, BaseEventBus>();//DI her IEventBus istendiginde, sunu yap
+
             //Testi gerceklestirebilmek icin serivceProvidere ihtiyacimiz var. Bu sekilde olusturmus olduk.
             var sp = services.BuildServiceProvider();
 
