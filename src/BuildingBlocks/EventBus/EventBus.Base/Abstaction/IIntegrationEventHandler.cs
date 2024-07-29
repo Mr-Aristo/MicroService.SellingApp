@@ -9,7 +9,7 @@ namespace EventBus.Base.Abstaction
 {
     public interface IIntegrationEventHandler<TIntegreationEvent>:IntegrationEventHandler where TIntegreationEvent: IntegrationEvent
     {
-        Task Hadle(TIntegreationEvent @event);
+        Task Handle(TIntegreationEvent @event);
     }
     public interface IntegrationEventHandler
     {
