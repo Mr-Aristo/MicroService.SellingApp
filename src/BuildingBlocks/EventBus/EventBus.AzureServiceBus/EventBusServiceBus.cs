@@ -150,7 +150,7 @@ namespace EventBus.AzureServiceBus
             bool ruleExists;
             try
             {
-                var rule = managementClient.GetRuleAsync(EventBusConfig.DefaultTopicName, eventName, eventName).GetAwaiter().GetResult();
+                var rule = managementClient.GetRuleAsync(EventBusConfig.DefaultTopicName,GetSubName(eventName), eventName).GetAwaiter().GetResult();
                 ruleExists = rule != null;
 
             }

@@ -11,6 +11,7 @@ namespace EventBusXunitTest.Events.EventHandlers
     {
         public Task Handle(OrderCreateIntegrationEvent @event)
         {
+            Console.WriteLine("Handle method workedwith id:"+ @event.Id);
             return Task.CompletedTask;
         }
     }
