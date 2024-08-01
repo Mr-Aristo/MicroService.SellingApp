@@ -1,0 +1,4 @@
+﻿CatalogType
+Pug
+T-Shirt
+USB Memory

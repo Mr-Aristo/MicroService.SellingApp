@@ -1,0 +1,4 @@
+﻿CatalogBrand
+Azure
+.Net
+Other

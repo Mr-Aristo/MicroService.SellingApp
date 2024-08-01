@@ -1,0 +1,4 @@
+﻿CatalogTypeName,CatalogBrandName,Description,Name,Price,PictureFileName,AvailableStock,onreorder
+T-shirt,.Net,".Net Bot Blockhood",Hoodem,1342,examplefile,100,false
+T-shirt,.Net,".Net Bot Blockhood",Hoodem,1342,examplefile,100,false
+T-shirt,.Net,".Net Bot Blockhood",Hoodem,1342,examplefile,100,false
