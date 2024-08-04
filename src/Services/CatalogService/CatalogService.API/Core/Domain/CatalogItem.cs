@@ -11,6 +11,7 @@ namespace CatalogService.API.Core.Domain
         public string PictureFileName { get; set; }
         public string PictureUrl { get; set; }
         public int AvailableStock { get; set; }
+        public bool OnReOrder { get; set; }   
         public int CatalogTypeId { get; set; }
         public CatalogType CatalogType { get; set; }
         public int CatalogBrandId { get; set; }

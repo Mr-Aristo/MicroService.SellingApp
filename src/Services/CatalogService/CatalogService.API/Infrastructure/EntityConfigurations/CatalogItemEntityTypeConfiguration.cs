@@ -27,6 +27,9 @@ namespace CatalogService.API.Infrastructure.EntityConfigurations
             builder.Property(ci=> ci.AvailableStock)
                 .IsRequired(true);
 
+            builder.Property(ci => ci.OnReOrder)
+               .IsRequired(false);
+
             builder.Property(ci =>ci.PictureFileName)
                 .IsRequired(false);
 
