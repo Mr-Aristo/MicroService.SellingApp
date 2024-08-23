@@ -15,7 +15,7 @@ namespace EventBus.Base
 
         public SubscriptionInfo(Type handleType)
         {
-            HandleType = handleType;
+            HandleType = handleType ?? throw new ArgumentNullException(nameof(handleType));
         }
         public static SubscriptionInfo Typed(Type handlerType)
         {

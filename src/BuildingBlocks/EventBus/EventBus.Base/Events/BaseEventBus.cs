@@ -71,6 +71,7 @@ namespace EventBus.Base.Events
                         //    eventBusConfig.CorrelationIdSetter?.Invoke((integrationEvent is IntegrationEvent).CorrelationId);
                         //}
                         var concreteType = typeof(IIntegrationEventHandler<>).MakeGenericType(eventType);
+                        
                         await (Task)concreteType.GetMethod("Handle").Invoke(handler, new object[] { integrationEvent });
                     }
 
