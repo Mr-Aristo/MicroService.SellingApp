@@ -26,7 +26,7 @@ namespace PaymentService.Api.IntegrationEvents.EventHandlers
         public Task Handle(OrderStartedIntegrationEvent @event)
         {
             // Fake payment process
-            string keyword = "PaymentSuccess";
+            string keyword = "PaymentSuccess"; //appsettings.json da ture.
             bool paymentSuccessFlag = configuration.GetValue<bool>(keyword);
 
             IntegrationEvent paymentEvent = paymentSuccessFlag
@@ -35,7 +35,7 @@ namespace PaymentService.Api.IntegrationEvents.EventHandlers
 
             logger.LogInformation($"OrderStartedIntegrationEventHandler in PaymentService is fired with PaymentSuccess: {paymentSuccessFlag}, orderId: {@event.OrderId}");
 
-            eventBus.Publish(paymentEvent);
+            eventBus.Publish(paymentEvent); // eventbusa islemin basarili veya basarizsiz oldugunu haber vericek.
 
             return Task.CompletedTask;
         }

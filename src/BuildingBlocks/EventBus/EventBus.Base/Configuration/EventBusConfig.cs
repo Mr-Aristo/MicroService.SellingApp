@@ -11,7 +11,7 @@ namespace EventBus.Base.Configuration
         public int ConnectionRetryCount { get; set; } = 5;
         public string DefaultTopicName { get; set; } = "SellingAppEventBus";
         public string EventBusConnectionString { get; set; } = string.Empty;
-        public string SubscriberClientAppName { get; set; } = string.Empty; //Hangi service bir queue yaratacak 
+        public string SubscriberClientAppName { get; set; } = string.Empty; //Hangi service bir queue yaratacak
         public string EventNamePrefix { get; set; } = string.Empty;
         public string EventNameSuffix { get; set; } = "IntegrationEvent";
         public EventBusType EventBusType { get; set; } = EventBusType.RabbitMQ;
@@ -27,6 +27,5 @@ namespace EventBus.Base.Configuration
     {
         RabbitMQ = 0,
         AzurServiceBus = 1
-
     }
 }
